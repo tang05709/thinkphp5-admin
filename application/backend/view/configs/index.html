@@ -1,0 +1,30 @@
+{extend name="layout/layout" /}
+{block name="main"}
+<div class="clearfix breadcrumb">
+  <div class="pull-left breadcrumb-title">系统管理</div>
+  <div class="pull-right breadcrumb-action">
+    
+  </div>
+</div>
+<div class="main-form">
+  <form name="theForm" action="/backend/configs/{$model.id}" enctype="multipart/form-data" method="post">
+    <input type="hidden" name="_method" value="PUT" />
+    <div class="form-box">
+      {tytag:textfield label="网站名称" name="name" value="$model['name']" help="" require="require" /}
+      {tytag:textfield label="网站标题" name="title" value="$model['title']" help="" require="require" /}
+      {tytag:filefield label="logo" name="logo" value="$model['logo']" updir="common" ftype="image" help="" require="" /}
+      {tytag:textfield label="网站链接" name="url" value="$model['url']" help="" require="" /}
+      {tytag:textfield label="网站备案" name="copyright" value="$model['copyright']" help="" require="" /}
+      {tytag:textfield label="seo标题" name="seo_title" value="$model['seo_title']" help="" require="" /}
+      {tytag:textfield label="seo关键字" name="seo_keywords" value="$model['seo_keywords']" help="" require="" /}
+      {tytag:textareafield label="seo描述" name="seo_description" value="$model['seo_description']" help="" /}
+      {tytag:textfield label="电话" name="phone" value="$model['phone']" help="" require="" /}
+      {tytag:textfield label="邮箱" name="email" value="$model['email']" help="" require="" /}
+      {tytag:textfield label="QQ" name="qq" value="$model['qq']" help="" require="" /}
+      {tytag:filefield label="微信" name="wechat" value="$model['wechat']" updir="common" ftype="image" help="" /}
+      {tytag:textfield label="地址" name="address" value="$model['address']" help="" require="" /}
+      {tytag:submitfield /}
+    </div>
+  </form>
+</div>
+{/block}

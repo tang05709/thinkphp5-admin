@@ -1,0 +1,75 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>内容管理系统</title>
+<link rel="stylesheet" type="text/css" href="/backend/style.css" />
+</head>
+<body>
+  <header class="clearfix main-header">
+    <div class="pull-left menu"><span class="show-aside"><img src="/backend/menu.png" width="20" height="20" /></span></div>
+    <div class="pull-right menu">
+      <span>{$Think.session.user_name}</span>
+      <a href="/backend/loginout">退出</a>
+    </div>
+  </header>
+  <aside class="main-aside">
+    <div class="main-menu">
+      <div class="logo"><a href="/backend/index"><img src="/backend/yanxuan.png" width="120" /></a></div>
+      <ul class="aside-root">
+        {volist name="taxon_trees" id="vo"}
+        <li class="top-parent-{$vo.id}">
+          {if $vo['children']}
+          <a href="javascript:void(0)"><span><img src="/backend/circle.png" width="18" height="18" /></span>{$vo.name}</a>
+          <div class="sub-aside">
+            <ul>
+              {volist name="$vo['children']" id="svo"}
+              <li data-topparent="{$vo.id}">
+                <a href="/backend/{$svo.module}?tid={$svo.id}">{$svo.name}</a>
+                {if $svo['children']}
+                <div class="sub-aside">
+                  <ul>
+                    {volist name="$svo['children']" id="smvo"}
+                    <li data-topparent="{$vo.id}">
+                      <a href="/backend/{$smvo.module}?tid={$smvo.id}">{$smvo.name}</a>
+                    </li>
+                    {/volist}
+                  </ul>
+                </div>
+                {else /}
+                {/if}
+              </li>
+              {/volist}
+            </ul>
+          </div>
+          {else /}
+          <a href="/backend/{$vo.module}?tid={$vo.id}"><span><img src="/backend/circle.png" width="18" height="18" /></span>{$vo.name}</a>
+          {/if}
+        </li>
+        {/volist}
+        <li>
+          <a href="/backend/taxons"><span><img src="/backend/taxons.png" width="18" height="18" /></span>栏目管理</a>
+        </li>
+        <li>
+          <a href="/backend/configs"><span><img src="/backend/setting.png" width="18" height="18" /></span>系统设置</a>
+        </li>
+        <li>
+          <a href="/backend/friend_links"><span><img src="/backend/frlinks.png" width="18" height="18" /></span>友情链接</a>
+        </li>
+      </ul>
+    </div>
+  </aside>
+  <section class="main-body">
+    <div class="main-center">
+      {block name="main"}主内容{/block}
+    </div>
+  </section>
+  <footer class="main-footer">
+    PowerBy Donald
+  </footer>
+  <script src="/plugins/jquery-3.3.1.min.js"></script>
+  <script src="/plugins/plupload/js/plupload.full.min.js"></script>
+  <script src="/backend/script.js"></script>
+  <script src="/backend/upload.js"></script>
+  {block name="js"}{/block}
+</body>
+</html>

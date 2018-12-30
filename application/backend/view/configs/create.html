@@ -1,0 +1,19 @@
+{extend name="layout/layout" /}
+{block name="main"}
+<div class="breadcrumb">
+  <a href="">首页</a> / <a href="">系统设置</a> / <span>网站配置</span>
+</div>
+<div class="main-form">
+  <form name="theForm" action="/backend/configs" enctype="multipart/form-data" method="post">
+    <table>
+      {tytag:textfield label="名称" name="title" value="" /}
+      {tytag:textfield label="标识" name="name" value="" /}
+      {tytag:textfield label="值" name="value" value="" /}
+      <tr>
+        <th>&nbsp;</th>
+        <td><input type="submit" class="btn-submit" value="提 交" /></td>
+      </tr>
+    </table>
+  </form>
+</div>
+{/block}

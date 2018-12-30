@@ -1,0 +1,45 @@
+{extend name="layout/layout" /}
+{block name="main"}
+<div class="clearfix breadcrumb">
+  <div class="pull-left breadcrumb-title">产品管理</div>
+  <div class="pull-right breadcrumb-action">
+    <a class="btn-add" href="/backend/products?tid={$model.tid}">返回列表</a>
+  </div>
+</div>
+<div class="main-form">
+  <form name="theForm" action="/backend/products/{$model.id}" enctype="multipart/form-data" method="post">
+    <input type="hidden" name="_method" value="PUT" />
+    <div class="form-box">
+      <input type="hidden" name="tid" value="{$model.tid}" />
+      {tytag:textfield label="标题" name="title" value="$model['title']" help="" require="require" /}
+      {tytag:filefield label="封面图片" name="image" value="$model['image']" updir="products" ftype="image" help="" /}
+      {tytag:filefield label="视频" name="video" value="$model['video']" updir="products" ftype="video" help="" /}
+      {tytag:mulfilefield label="图册" name="images" value="$model['images']" updir="products" help="" /}
+      {tytag:textfield label="价格" name="price" value="$model['price']" help="" require="" /}
+      {tytag:textfield label="seo标题" name="seo_title" value="$model['seo_title']" help="" require="" /}
+      {tytag:textfield label="seo关键字" name="seo_keywords" value="$model['seo_keywords']" help="" require="" /}
+      {tytag:textareafield label="seo描述" name="seo_description" value="$model['seo_description']" help="" /}
+      {tytag:textareafield label="内容" name="content" value="$model['content']" help="" /}
+      {tytag:textfield label="排序" name="sort" value="$model['sort']" help="越小越靠前" require="" /}
+      <div class="form-group">
+        <div class="form-label">是否显示</div>
+        <div class="form-input">
+          <input type="radio" name="is_show" placeholder="是否显示" {if $model['is_show'] == 1} checked="checked" {/if} value="1" /> 是
+          <input type="radio" name="is_show" placeholder="是否显示" {if $model['is_show'] == 0} checked="checked" {/if} value="0" /> 否
+        </div>
+      </div>
+      {tytag:submitfield /}
+    </div>
+  </form>
+</div>
+{/block}
+
+{block name="js"}
+<script type="text/javascript" src="/plugins/tyeditor/ueditor.config.js"></script>
+<script type="text/javascript" src="/plugins/tyeditor/ueditor.all.js"></script>
+<script>
+  var ue = UE.getEditor('content', {
+    initialFrameHeight: 500
+  });
+</script>
+{/block}

@@ -1,0 +1,28 @@
+{extend name="layout/layout" /}
+{block name="main"}
+<div class="clearfix breadcrumb">
+  <div class="pull-left breadcrumb-title">单页管理</div>
+  <div class="pull-right breadcrumb-action">
+
+  </div>
+</div>
+<div class="main-form">
+  <form name="theForm" action="/backend/pages/{$model.id}" enctype="multipart/form-data" method="post">
+    <input type="hidden" name="_method" value="PUT" />
+    <div class="form-box">
+      {tytag:textfield label="标题" name="name" value="$model['name']" help="标题修改无效" require="" /}
+      {tytag:textareafield label="内容" name="content" value="$model['content']" help="" /}
+      {tytag:submitfield /}
+    </div>
+  </form>
+</div>
+{/block}
+{block name="js"}
+<script type="text/javascript" src="/plugins/tyeditor/ueditor.config.js"></script>
+<script type="text/javascript" src="/plugins/tyeditor/ueditor.all.js"></script>
+<script>
+  var ue = UE.getEditor('content', {
+    initialFrameHeight: 500
+  });
+</script>
+{/block}

@@ -1,0 +1,15 @@
+{extend name="layout/layout" /}
+{block name="main"}
+<div class="main-list">
+  <table>
+    <tr>
+      <th width="20%">操作系统</th>
+      <td width="20%">{php}echo php_uname('s');{/php}</td>
+      <th width="15%">PHP版本</th>
+      <td width="15%">{php}echo PHP_VERSION;{/php}</td>
+      <th width="15%">当前域名 </th>
+      <td width="15%">{php}echo $_SERVER["HTTP_HOST"]{/php}</td>
+    </tr>
+  </table>
+</div>
+{/block}

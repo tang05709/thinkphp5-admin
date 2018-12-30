@@ -1,0 +1,27 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>内容管理系统</title>
+<link rel="stylesheet" type="text/css" href="/backend/style.css" />
+</head>
+<body class="login">
+  <div class="login-box">
+    <div class="login-form">
+      <form name="theForm" action="/backend/loginin" method="post">
+        <div class="login-group">
+          <input class="login-input" type="text" name="user_name" placeholder="用户名" value="" />
+        </div>
+        <div class="login-group">
+            <input class="login-input" type="password" name="user_password" placeholder="密码" value="" />
+        </div>
+        <div class="login-group">
+            <input class="login-code" type="text" name="code" placeholder="验证码" value="" /><img src="/backend/get_captcha" width="60" height="30" onclick="this.src='/backend/get_captcha?'+Math.random();" />
+        </div>
+        <div class="login-group">
+            <input class="login-submit" type="submit" value="登 陆" />
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

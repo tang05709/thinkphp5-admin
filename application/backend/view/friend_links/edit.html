@@ -1,0 +1,21 @@
+{extend name="layout/layout" /}
+{block name="main"}
+<div class="clearfix breadcrumb">
+  <div class="pull-left breadcrumb-title">友情链接</div>
+  <div class="pull-right breadcrumb-action">
+    <a class="btn-add" href="/backend/friend_links">返回列表</a>
+  </div>
+</div>
+<div class="main-form">
+  <form name="theForm" action="/backend/friend_links/{$model.id}" enctype="multipart/form-data" method="post">
+    <input type="hidden" name="_method" value="PUT" />
+    <div class="form-box">
+      {tytag:textfield label="名称" name="name" value="$model['name']" help="" require="" /}
+      {tytag:textfield label="链接" name="url" value="$model['url']" help="格式： http://www.jxcat.com/" require="require" /}
+      {tytag:filefield label="logo" name="logo" value="$model['logo']" updir="common" ftype="image" help="" /}
+      {tytag:textfield label="排序" name="sort" value="$model['sort']" help="越小越靠前" require="" /}
+      {tytag:submitfield /}
+    </div>
+  </form>
+</div>
+{/block}

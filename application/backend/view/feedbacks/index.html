@@ -1,0 +1,60 @@
+{extend name="layout/layout" /}
+{block name="main"}
+<div class="clearfix breadcrumb">
+  <div class="pull-left breadcrumb-title">留言管理</div>
+  <div class="pull-right breadcrumb-action">
+    <div class="pull-right breadcrumb-search">
+      <form name="searchForm" action="/backend/articles" method="get">
+        <input type="hidden" name="tid" value="{$tid}" />
+        <input type="text" name="search" value="" placeholder="请输入关键字" />
+        <input type="submit" value="搜 索" />
+      </form>
+    </div>
+    <div class="pull-right breadcrumb-add">
+      <!--<a href="/backend/articles/create?tid={$tid}">添 加</a>-->
+      <!--<span>添加 ▾</span>
+      <div class="more-add">
+        <a href="">公司新闻</a>
+        <a href="">行业新闻</a>
+      </div>-->
+    </div>
+  </div>
+</div>
+<div class="main-list">
+  <table>
+    <tbody>
+      <tr>
+        <th width="5%">编号</th>
+        <th width="35%">标题</th>
+        <th width="10%">电话</th>
+        <th width="20%">添加时间</th>
+        <th width="10%">操作</th>
+      </tr>
+      {volist name="list" id="vo"}
+      <tr>
+        <td><input type="checkbox" class="list-check" name="" value="{$vo.id}" />{$vo.id}</td>
+        <td>{$vo.title}</td>
+        <td>{$vo.phone}</td>
+        <td>{$vo.create_time}</td>
+        <td>
+          <a class="operate" href="/backend/feedbacks/{$vo.id}/edit">编辑</a>
+          <a class="operate delete-operate" href="javascript:void(0)" data-url="/backend/feedbacks/{$vo.id}">删除</a>
+        </td>
+      </tr>
+      {/volist}
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          <input type="checkbox" class="checkall" name="" value="" /> 
+          <button class="delete" data-url="/backend/feedbacks/batch_delete">批量删除</button>
+        </td>
+        <td colspan="5" class="clearfix">
+            {$list->render()}
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+{/block}

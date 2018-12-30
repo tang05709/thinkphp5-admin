@@ -1,0 +1,32 @@
+{extend name="layout/layout" /}
+{block name="main"}
+<div class="clearfix breadcrumb">
+  <div class="pull-left breadcrumb-title">友情链接</div>
+  <div class="pull-right breadcrumb-action">
+    <a class="btn-add" href="/backend/friend_links/create">添加</a>
+  </div>
+</div>
+<div class="main-list">
+  <table>
+    <tbody>
+      <tr>
+        <th width="5%">编号</th>
+        <th width="75%">名称</th>
+        <th width="10%">排序</th>
+        <th width="10%">操作</th>
+      </tr>
+      {volist name="list" id="vo"}
+      <tr>
+        <td>{$vo.id}</td>
+        <td><a href="{$vo.url}" target="_blank">{$vo.name}</a></td>
+        <td>{$vo.sort}</td>
+        <td>
+          <a class="operate" href="/backend/friend_links/{$vo.id}/edit">编辑</a>
+          <a class="operate delete-operate" href="javascript:void(0)" data-url="/backend/friend_links/{$vo.id}">删除</a>
+        </td>
+      </tr>
+      {/volist}
+    </tbody>
+  </table>
+</div>
+{/block}

@@ -1,0 +1,42 @@
+{extend name="layout/layout" /}
+{block name="main"}
+<div class="clearfix breadcrumb">
+  <div class="pull-left breadcrumb-title">栏目管理</div>
+  <div class="pull-right breadcrumb-action">
+    <a class="btn-add" href="/backend/taxons">返回列表</a>
+  </div>
+</div>
+<div class="main-form">
+  <form name="theForm" action="/backend/taxons" enctype="multipart/form-data" method="post">
+    <div class="form-box">
+      {tytag:textfield label="名称" name="name" value="" help="" require="require" /}
+      <input type="hidden" name="parent_id" value="{$parent_id}" />
+      <div class="form-group">
+        <div class="form-label">模块</div>
+        <div class="form-input">
+          <select name="module">
+            <option value="0">请选择</option>
+            {volist name="webmodule" id="vo"}
+            <option value="{$key}">{$vo}</option>
+            {/volist}
+          </select>
+        </div>
+      </div>
+      {tytag:textfield label="文件名称" name="filename" value="" help="" require="" /}
+      {tytag:filefield label="图标" name="icon" value="" updir="icon" ftype="image" help="" /}
+      {tytag:textfield label="seo标题" name="seo_title" value="" help="" require="" /}
+      {tytag:textfield label="seo关键字" name="seo_keywords" value="" help="" require="" /}
+      {tytag:textareafield label="seo描述" name="seo_description" value="" help="" /}
+      {tytag:textfield label="排序" name="sort" value="50" help="越小越靠前" require="" /}
+      <div class="form-group">
+        <div class="form-label">是否显示</div>
+        <div class="form-input">
+          <input type="radio" name="is_show" placeholder="是否显示" checked="checked" value="1" /> 是
+          <input type="radio" name="is_show" placeholder="是否显示" value="0" /> 否
+        </div>
+      </div>
+      {tytag:submitfield /}
+    </div>
+  </form>
+</div>
+{/block}

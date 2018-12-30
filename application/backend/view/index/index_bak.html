@@ -1,0 +1,76 @@
+{extend name="layout/layout" /}
+{block name="main"}
+<div class="breadcrumb">
+  <a href="">首页</a> / <a href="">系统设置</a> / <span>网站配置</span>
+</div>
+<div class="main-form">
+  <form name="theForm" action="url" method="post">
+    <table>
+      <tr>
+        <th>编号</th>
+        <td><input type="text" name="" placeholder="编号" value="" /></td>
+      </tr>
+      <tr>
+        <th>名称</th>
+        <td><input type="text" name="" placeholder="名称" value="" /></td>
+      </tr>
+      <tr>
+        <th>分类</th>
+        <td>
+          <select name="">
+            <option value="">分类1</option>
+            <option value="">分类2</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <th>描述</th>
+        <td><textarea name="" placeholder="描述"></textarea></td>
+      </tr>
+      <tr>
+        <th>是否显示</th>
+        <td>
+          <input type="radio" name="" value="" /> 是
+          <input type="radio" name="" value="" /> 否
+        </td>
+      </tr>
+      <tr>
+        <th>&nbsp;</th>
+        <td><input type="submit" class="btn-submit" value="提 交" /></td>
+      </tr>
+    </table>
+  </form>
+</div>
+
+<div class="main-list">
+  <table>
+    <tr>
+      <th><input type="checkbox" class="v-mid" name="" value="" /><span class="v-mid">编号</span></th>
+      <th>标题</th>
+      <th>操作</th>
+    </tr>
+    <tr>
+      <td><input type="checkbox" class="v-mid" name="" value="" /><span class="v-mid">1</span></td>
+      <td>标题</td>
+      <td>
+        <a class="operate" href="">编辑</a>
+        <a class="operate" href="">删除</a>
+      </td>
+    </tr>
+    <tfoot>
+      <tr>
+        <td>批量删除</td>
+        <td colspan="2">
+          <ul class="clearfix page">
+            <li><span>共25页200条记录</span></li>
+            <li><a href="">首 页</a></li>
+            <li><a href="">上一页</a></li>
+            <li><a href="">下一页</a></li>
+            <li><a href="">尾 页</a></li>
+          </ul>
+        </td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+{/block}

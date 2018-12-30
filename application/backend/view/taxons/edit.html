@@ -1,0 +1,50 @@
+{extend name="layout/layout" /}
+{block name="main"}
+<div class="clearfix breadcrumb">
+  <div class="pull-left breadcrumb-title">栏目管理</div>
+  <div class="pull-right breadcrumb-action">
+    <a class="btn-add" href="/backend/taxons">返回列表</a>
+  </div>
+</div>
+<div class="main-form">
+  <form name="theForm" action="/backend/taxons/{$model.id}" enctype="multipart/form-data" method="post">
+    <input type="hidden" name="_method" value="PUT" />
+    <div class="form-box">
+        {tytag:textfield label="名称" name="name" value="$model['name']" help="" require="require" /}
+        <div class="form-group">
+          <div class="form-label">上级栏目</div>
+          <div class="form-input">
+            <select name="parent_id">
+              {$options}
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="form-label">模块</div>
+          <div class="form-input">
+            <select name="module">
+              <option value="0">请选择</option>
+              {volist name="webmodule" id="vo"}
+              <option value="{$key}">{$vo}</option>
+              {/volist}
+            </select>
+          </div>
+        </div>
+        {tytag:textfield label="文件名称" name="filename" list="list" value="$model['filename']" help="" require="" /}
+        {tytag:filefield label="图标" name="icon" value="$model['icon']" updir="icon" ftype="image" help="" /}
+        {tytag:textfield label="seo标题" name="seo_title" value="$model['seo_title']" help="" require="" /}
+        {tytag:textfield label="seo关键字" name="seo_keywords" value="$model['seo_keywords']" help="" require="" /}
+        {tytag:textareafield label="seo描述" name="seo_description" value="$model['seo_description']" help="" /}
+        {tytag:textfield label="排序" name="sort" value="$model['sort']" help="越小越靠前" require="" /}
+        <div class="form-group">
+          <div class="form-label">是否显示</div>
+          <div class="form-input">
+            <input type="radio" name="is_show" placeholder="是否显示" {if $model['is_show'] == 1} checked="checked" {/if} value="1" /> 是
+            <input type="radio" name="is_show" placeholder="是否显示" {if $model['is_show'] == 0} checked="checked" {/if} value="0" /> 否
+          </div>
+        </div>
+        {tytag:submitfield /}
+    </div>
+  </form>
+</div>
+{/block}

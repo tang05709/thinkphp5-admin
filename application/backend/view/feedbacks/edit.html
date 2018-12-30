@@ -1,0 +1,24 @@
+{extend name="layout/layout" /}
+{block name="main"}
+<div class="clearfix breadcrumb">
+  <div class="pull-left breadcrumb-title">文章管理</div>
+  <div class="pull-right breadcrumb-action">
+    <a class="btn-add" href="/backend/feedbacks?tid={$model.tid}">返回列表</a>
+  </div>
+</div>
+<div class="main-form">
+  <form name="theForm" action="/backend/feedbacks/{$model.id}" enctype="multipart/form-data" method="post">
+    <input type="hidden" name="_method" value="PUT" />
+    <div class="form-box">
+      <input type="hidden" name="tid" value="{$model.tid}" />
+      {tytag:textfield label="标题" name="title" value="$model['title']" help="" require="require" /}
+      {tytag:textfield label="电话" name="phone" value="$model['phone']" help="" require="" /}
+      {tytag:textfield label="姓名" name="name" value="$model['name']" help="" require="" /}
+      {tytag:textfield label="公司" name="company" value="$model['company']" help="" require="" /}
+      {tytag:textfield label="地址" name="address" value="$model['address']" help="" require="" /}
+      {tytag:textareafield label="内容" name="content" value="$model['content']" help="" /}
+      {tytag:submitfield /}
+    </div>
+  </form>
+</div>
+{/block}

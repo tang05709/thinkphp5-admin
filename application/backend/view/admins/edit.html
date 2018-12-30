@@ -1,0 +1,21 @@
+{extend name="layout/layout" /}
+{block name="main"}
+<div class="clearfix breadcrumb">
+  <div class="pull-left breadcrumb-title">管理员</div>
+  <div class="pull-right breadcrumb-action">
+    <a class="btn-add" href="/backend/admins">返回列表</a>
+  </div>
+</div>
+<div class="main-form">
+  <form name="theForm" action="/backend/admins/{$model.id}" enctype="multipart/form-data" method="post">
+    <input type="hidden" name="_method" value="PUT" />
+    <div class="form-box">
+        {tytag:textfield label="用户名" name="name" value="$model['name']" help="名称更改无效" require="require" /}
+        {tytag:textfield label="旧密码" name="oldpassword" value="" help="" require="require" /}
+        {tytag:textfield label="密码" name="password" value="" help="" require="require" /}
+        {tytag:textfield label="确认密码" name="repassword" value="" help="" require="require" /}
+      {tytag:submitfield /}
+    </div>
+  </form>
+</div>
+{/block}

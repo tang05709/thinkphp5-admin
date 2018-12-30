@@ -1,0 +1,51 @@
+{extend name="layout/layout" /}
+{block name="main"}
+<div class="clearfix breadcrumb">
+  <div class="pull-left breadcrumb-title">栏目管理</div>
+  <div class="pull-right breadcrumb-action">
+    <a class="btn-add" href="/backend/taxons/create">添加顶级栏目</a>
+  </div>
+</div>
+<div class="main-list">
+  <div class="taxons-box">
+    <ul class="taxons-list">
+      <li class="clearfix taxon-header">
+        <div class="pull-left taxon-no">编号</div>
+        <div class="pull-left taxon-name">名称</div>
+        <div class="pull-left taxon-module">模块</div>
+        <div class="pull-left taxon-show">是否显示</div>
+        <div class="pull-left taxon-sort">排序</div>
+        <div class="pull-right taxon-operate">操作</div>
+      </li>
+      {volist name="list" id="vo"}
+      {if condition="$vo['level'] eq 1"}
+      <li class="taxon-body parent_{$vo.parent_id} level_{$vo.level}" data-id="{$vo.id}">
+      {else /}
+      <li class="taxon-body parent_{$vo.parent_id} level_{$vo.level} taxon-hide" data-id="{$vo.id}">
+      {/if}
+          <div class="pull-left taxon-no">{$vo.id}</div>
+          <div class="pull-left clearfix taxon-name">
+            {if condition="$vo['has_children']"}
+            <img src="/backend/has_children.gif" />
+            {else /}
+            <img src="/backend/no_children.gif" />
+            {/if}
+            <span class="line-verticle"></span>
+            {$vo.name}
+          </div>
+          <div class="pull-left taxon-module">{$webmodule[$vo.module]}</div>
+          <div class="pull-left taxon-show">{$vo.is_show|is_show}</div>
+          <div class="pull-left taxon-sort">{$vo.sort}</div>
+          <div class="pull-right taxon-operate">
+              {if condition="$vo['level'] lt 3"}
+              <a class="operate" href="/backend/taxons/create?parent_id={$vo.id}">添加子栏目</a>
+              {/if}
+              <a class="operate" href="/backend/taxons/{$vo.id}/edit">编辑</a>
+              <a class="operate delete-operate" href="javascript:void(0)" data-url="/backend/taxons/{$vo.id}">删除</a>
+          </div>
+      </li>
+      {/volist}
+    </ul>
+  </div>
+</div>
+{/block}
