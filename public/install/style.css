@@ -1,0 +1,63 @@
+body {
+  background: #ff5353; 
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.clearfix:after {
+  content: "";
+  height: 0;
+  clear: both;
+  display: block;
+}
+.welcome,
+.db-config,
+.success {
+  width: 500px;
+  padding: 50px;
+  margin: 0 auto;
+  margin-top: 180px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+}
+.welcome ul li {
+  margin-bottom: 8px;
+}
+.next a,
+.next input {
+  width: 80px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  display: block;
+  margin-top: 50px;
+  border-radius: 3px;
+  border: none;
+  background: #dddddd;
+  font-weight: bold;
+  color: #000000;
+}
+.input-box {
+  float: left;
+  width: 200px;
+}
+.desc-box {
+  float: right;
+  width: 240px;
+  line-height: 35px;
+}
+.db-config ul li,
+.success ul li {
+  margin-bottom: 20px;
+}
+.db-config ul li input {
+  height: 35px;
+  line-height: 35px;
+  width: 100%;
+}
+.success ul li a {
+ color: #000000;
+}

@@ -1,0 +1,57 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>安装引导</title>
+<link rel="stylesheet" type="text/css" href="./style.css" />
+</head>
+<body>
+  <div class="db-config">
+    <h3>请在下方填写数据库连接信息，如果你不确定，请联系你的服务提供商。</h3>
+    <form name="theform" action="./index.php?step=step2" method="post">
+    <ul>
+      <li class="clearfix">
+        <div class="input-box">
+          <input type="text" name="dbname" value="" placeholder="数据库名称" />
+        </div>
+        <div class="desc-box">
+          数据库的名称
+        </div>
+      </li>
+      <li class="clearfix">
+        <div class="input-box">
+          <input type="text" name="dbuser" value="" placeholder="数据库用户名" />
+        </div>
+        <div class="desc-box">
+          数据库的用户名
+        </div>
+      </li>
+      <li class="clearfix">
+        <div class="input-box">
+          <input type="text" name="dbpassword" value="" placeholder="数据库密码" />
+        </div>
+        <div class="desc-box">
+          数据库的密码
+        </div>
+      </li>
+      <li class="clearfix">
+        <div class="input-box">
+          <input type="text" name="dbhost" value="localhost" placeholder="数据库主机名" />
+        </div>
+        <div class="desc-box">
+          数据库的主机名，如果localhost不能用，请联系你的服务提供商
+        </div>
+      </li>
+      <li class="clearfix">
+        <div class="input-box">
+          <input type="text" name="dbprefix" value="" placeholder="数据表前缀" />
+        </div>
+        <div class="desc-box">
+          数据表的前缀
+        </div>
+      </li>
+    </ul>
+    <div class="next"><input type="submit" value="提 交" /></div>
+  </form>
+  </div>
+</body>
+</html>

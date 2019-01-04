@@ -1,0 +1,49 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>安装引导</title>
+<link rel="stylesheet" type="text/css" href="./style.css" />
+</head>
+<body>
+  <div class="db-config">
+    <h3>你需要填写一些基本信息，这些信息可以修改。</h3>
+    <form name="theform" action="./index.php?step=step3" method="post">
+    <ul>
+      <li class="clearfix">
+        <div class="input-box">
+          <input type="text" name="web_name" value="" placeholder="网站名称" />
+        </div>
+        <div class="desc-box">
+          网站的名称
+        </div>
+      </li>
+      <li class="clearfix">
+        <div class="input-box">
+          <input type="text" name="web_user" value="" placeholder="用户名" />
+        </div>
+        <div class="desc-box">
+          后台登陆的用户名
+        </div>
+      </li>
+      <li class="clearfix">
+        <div class="input-box">
+          <input type="text" name="web_password" value="" placeholder="密码" />
+        </div>
+        <div class="desc-box">
+          后台登陆的密码
+        </div>
+      </li>
+      <li class="clearfix">
+        <div class="input-box">
+          <input type="text" name="web_repassword" value="" placeholder="确认密码" />
+        </div>
+        <div class="desc-box">
+          后台登陆的确认密码
+        </div>
+      </li>
+    </ul>
+    <div class="next"><input type="submit" value="提 交" /></div>
+  </form>
+  </div>
+</body>
+</html>
