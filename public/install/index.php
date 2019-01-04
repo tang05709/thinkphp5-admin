@@ -140,7 +140,7 @@ function create_db($dbname, $dbuser, $dbpassword, $dbhost, $dbprefix) {
   if(!empty($dbprefix)) {
     $sql_file = str_replace('ty_', $dbprefix, $sql_file);
   }
-  // sql文件语句以;号结束，将每条语句分割到属猪
+  // sql文件语句以;号结束，将每条语句分割到数组
   $sql_arr = explode(';', $sql_file);
   foreach($sql_arr as $val) {
     // sql运行需要;号，所以还得加上
