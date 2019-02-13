@@ -8,7 +8,11 @@
 // +----------------------------------------------------------------------
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
-
+// 安装入口
+if (file_exists('./install') && !file_exists('./install/install.lock')) {
+  header('Location: install/index.php');
+  exit;
+}
 // [ 应用入口文件 ]
 
 // 定义应用目录

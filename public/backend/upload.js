@@ -107,7 +107,12 @@ $(document).ready(function() {
           new_image_files = $.parseJSON(file_name);
         }
         // 去掉数组中的当前值
-        new_image_files.pop(current_file_name);
+        for(var i in new_image_files) {
+          if(new_image_files[i] == current_file_name) {
+            new_image_files.splice(i,1);
+            break;
+          }
+        }
         $.ajax({
             type: "POST",
             url: "/backend/del_upload",
